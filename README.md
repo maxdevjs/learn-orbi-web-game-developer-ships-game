@@ -27,4 +27,4 @@ Press `W` to go up, `S` to go down, `Space` to shoot.
 ## TODO
 
 - [ ] refactor code 😙
-- [ ] pause?
+- [ ] pause? 🤔
