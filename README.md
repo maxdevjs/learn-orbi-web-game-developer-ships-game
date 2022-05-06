@@ -12,7 +12,7 @@ Codes for `jogo de naves (ships game)` - [Órbi](https://orbi.co/) Web Games Dev
 
 ### How to play
 
-Press `W` to go up, `S` to go down, `Space` to shoot.
+Press `Q` to move up, `S` to move down, `Space` to shoot.
 
 ## Credits
 
@@ -27,4 +27,8 @@ Press `W` to go up, `S` to go down, `Space` to shoot.
 ## TODO
 
 - [ ] refactor code 😙
+  - [ ] [JavaScript Keycode List – Keypress Event Key Codes for Enter, Space, Backspace, and More](https://www.freecodecamp.org/news/javascript-keycode-list-keypress-event-key-codes/)
+  - [ ] [KeyboardEvent](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent)
+  - [ ] check `downloadable font: bad table directory searchRange (font-family: "Titulo" style:normal weight:400 stretch:100 src index:0)` warning
+  - [ ] check `downloadable font: hdmx: the table should not be present when bit 2 and 4 of the head->flags are not set (font-family: "Titulo" style:normal weight:400 stretch:100 src index:0)` error
 - [ ] pause? 🤔
