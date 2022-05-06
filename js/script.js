@@ -23,6 +23,7 @@ function start() { // Inicio da função start()
 
 	function loop() {
 		movefundo();
+		movejogador();
 	} // Fim da função loop()
 
 	//Função que movimenta o fundo do jogo
@@ -40,8 +41,6 @@ function start() { // Inicio da função start()
 	$(document).keyup(function(e){
 	   jogo.pressionou[e.which] = false;
 	});
-
-	movejogador();
 
 	function movejogador() {
 		if (jogo.pressionou[TECLA.Q]) {
