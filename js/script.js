@@ -17,6 +17,8 @@ function start() { // Inicio da função start()
 	}
 	
 	jogo.pressionou = [];
+	const velocidade=5;
+	let posicaoY = parseInt(Math.random() * 334);	
 		
 	//Game Loop
 	jogo.timer = setInterval(loop,30);
@@ -24,6 +26,7 @@ function start() { // Inicio da função start()
 	function loop() {
 		movefundo();
 		movejogador();
+		moveinimigo1();
 	} // Fim da função loop()
 
 	//Função que movimenta o fundo do jogo
@@ -65,5 +68,16 @@ function start() { // Inicio da função start()
 		}
 	} // fim da função movejogador()
 
+	function moveinimigo1() {
+		posicaoX = parseInt($("#inimigo1").css("left"));
+		$("#inimigo1").css("left",posicaoX-velocidade);
+		$("#inimigo1").css("top",posicaoY);
+			
+		if (posicaoX<=0) {
+			posicaoY = parseInt(Math.random() * 334);
+			$("#inimigo1").css("left",694);
+			$("#inimigo1").css("top",posicaoY);
+		}
+	} //Fim da função moveinimigo1()	
 	
 } // Fim da função start
