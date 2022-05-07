@@ -38,7 +38,14 @@ function start() {
   const somResgate = document.getElementById("somResgate");
 
   //Música em loop
-  musica.addEventListener("ended", function(){ musica.currentTime = 0; musica.play(); }, false);
+  musica.addEventListener(
+    "ended",
+    function () {
+      musica.currentTime = 0;
+      musica.play();
+    },
+    false
+  );
   musica.play();
 
   //Game Loop
@@ -127,7 +134,7 @@ function start() {
   function disparo() {
     if (podeAtirar == true) {
       podeAtirar = false;
-	  somDisparo.play();
+      somDisparo.play();
 
       topo = parseInt($("#jogador").css("top"));
       posicaoX = parseInt($("#jogador").css("left"));
@@ -163,7 +170,7 @@ function start() {
 
     // jogador com o inimigo1
     if (colisao1.length > 0) {
-	  somPerdido.play();
+      somPerdido.play();
       energiaAtual--;
       inimigo1X = parseInt($("#inimigo1").css("left"));
       inimigo1Y = parseInt($("#inimigo1").css("top"));
@@ -176,7 +183,7 @@ function start() {
 
     // jogador com o inimigo2
     if (colisao2.length > 0) {
-	  somPerdido.play();
+      somPerdido.play();
       energiaAtual--;
       inimigo2X = parseInt($("#inimigo2").css("left"));
       inimigo2Y = parseInt($("#inimigo2").css("top"));
@@ -189,7 +196,7 @@ function start() {
 
     // Disparo com o inimigo1
     if (colisao3.length > 0) {
-	  somExplosao.play();
+      somExplosao.play();
       pontos = pontos + 100;
       velocidade = velocidade + 0.3;
 
@@ -207,7 +214,7 @@ function start() {
     // Disparo com o inimigo2
     if (colisao4.length > 0) {
       pontos = pontos + 50;
-	  somExplosao.play();
+      somExplosao.play();
 
       inimigo2X = parseInt($("#inimigo2").css("left"));
       inimigo2Y = parseInt($("#inimigo2").css("top"));
@@ -222,7 +229,7 @@ function start() {
     // jogador com o amigo
     if (colisao5.length > 0) {
       salvos++;
-	  somResgate.play();
+      somResgate.play();
       reposicionaAmigo();
       $("#amigo").remove();
     }
@@ -243,7 +250,7 @@ function start() {
 
     //Inimigo2 com o amigo
     if (colisao6.length > 0) {
-	  somPerdido.play();
+      somPerdido.play();
       perdidos++;
       amigoX = parseInt($("#amigo").css("left"));
       amigoY = parseInt($("#amigo").css("top"));
@@ -349,6 +356,31 @@ function start() {
       $("#energia").css("background-image", "url(imgs/energia0.png)");
 
       //Game Over
+      gameOver();
     }
   } // Fim da função energia()
+
+  //Função GAME OVER
+  function gameOver() {
+    fimdejogo = true;
+    musica.pause();
+    somGameover.play();
+
+    window.clearInterval(jogo.timer);
+    jogo.timer = null;
+
+    $("#jogador").remove();
+    $("#inimigo1").remove();
+    $("#inimigo2").remove();
+    $("#amigo").remove();
+
+    $("#fundoGame").append("<div id='fim'></div>");
+
+    $("#fim").html(
+      "<h1> Game Over </h1><p>Sua pontuação foi: " +
+        pontos +
+        "</p>" +
+        "<div id='reinicia' onClick=reiniciaJogo()><h3>Jogar Novamente</h3></div>"
+    );
+  } // Fim da função gameOver();
 } // Fim da função start
